@@ -1,0 +1,43 @@
+#keymapper * {
+  box-sizing: border-box;
+  -webkit-user-select: text;
+}
+
+#keymapper {
+  overflow-y: scroll;
+}
+
+#keymapper ul li {
+  border: 1px solid black;
+  position: relative;
+}
+#keymapper ul li label {
+  border-right: 1px solid black;
+
+  padding: 0 8px;
+  min-height: 2em;
+  display: inline-block;
+  margin-right: -1px;
+  width: 20%;
+  min-width: 128px;
+  max-width: 256px;
+}
+
+#keymapper ul li label span + span {
+  display: inline-block;
+  margin-left: 8px;
+}
+
+#keymapper ul li .command {
+  border-left: 1px solid black;
+  display: inline-block;
+  padding: 0px 8px;
+}
+
+#keymapper ul li .command span + span {
+  display: block;
+}
+
+#keymapper span {
+  whitespace: nowrap;
+}
