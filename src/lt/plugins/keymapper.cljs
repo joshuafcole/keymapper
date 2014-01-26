@@ -2,7 +2,8 @@
   (:require [lt.object :as object]
             [lt.objs.command :as cmd]
             [lt.objs.keyboard :as keyboard]
-            [lt.objs.tabs :as tabs])
+            [lt.objs.tabs :as tabs]
+            [crate.binding :refer [bound]])
   (:require-macros [lt.macros :refer [defui behavior]]))
 
 (defui keymap-item [this item]
@@ -18,17 +19,19 @@
            cmds)]]))
 
 (defui keymap-panel [this]
-
   [:div {:id "keymapper"}
    [:h1 "Keymapper" ]
-   [:ul (map (fn [item]
+   [:ul (bound keyboard/key-map
+               #(map (fn [item]
                (keymap-item this item))
-             @keyboard/key-map)]])
+             ;; NEED TO BIND THIS FOR CHANGES.
+             %))]])
 
-(object/object* ::keymapper.hello
-                :tags [:keymapper.hello]
+(object/object* ::keymapper
+                :tags [:keymapper]
                 :name "keymapper"
                 :init (fn [this]
+                        (.log js/console "HELLO")
                         (keymap-panel this)))
 
 (behavior ::on-close-destroy
@@ -39,9 +42,9 @@
                           (tabs/rem-tabset ts)))
                       (object/raise this :destroy)))
 
-(def hello (object/create ::keymapper.hello))
+(def keymapper (object/create ::keymapper))
 
-(cmd/command {:command ::say-hello
-              :desc "Keymapper: Say Hello"
+(cmd/command {:command :keymapper.show
+              :desc "Keymapper: Show Keymap"
               :exec (fn []
-                      (tabs/add-or-focus! hello))})
+                      (tabs/add-or-focus! keymapper))})

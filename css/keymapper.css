@@ -25,7 +25,6 @@
 
 #keymapper ul li label span + span {
   display: inline-block;
-  margin-left: 8px;
 }
 
 #keymapper ul li .command {
