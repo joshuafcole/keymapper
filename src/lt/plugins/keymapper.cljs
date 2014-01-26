@@ -23,15 +23,13 @@
    [:h1 "Keymapper" ]
    [:ul (bound keyboard/key-map
                #(map (fn [item]
-               (keymap-item this item))
-             ;; NEED TO BIND THIS FOR CHANGES.
-             %))]])
+                       (keymap-item this item))
+                     %))]])
 
 (object/object* ::keymapper
                 :tags [:keymapper]
                 :name "keymapper"
                 :init (fn [this]
-                        (.log js/console "HELLO")
                         (keymap-panel this)))
 
 (behavior ::on-close-destroy
