@@ -2,7 +2,7 @@
   "name": "Keymapper",
   "author": "Joshua Cole",
   "version": "0.0.2",
-  "source": "",
+  "source": "https://github.com/joshuafcole/keymapper",
   "desc": "Find all existing shortcuts in one convenient place.",
   "dependencies": {
   },
