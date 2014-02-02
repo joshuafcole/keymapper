@@ -17,6 +17,7 @@ the source of https://github.com/joshuafcole/keymapper/issues/4
 
 
 ## Changelog
+* 0.0.4 Fixes serious performance issues, courtesy of @ibdknox
 * 0.0.3 More cleanup
 * 0.0.2 Cleans up source and binds tab to keep keymap updated
 * 0.0.1 Initial Release
