@@ -24,6 +24,10 @@
   max-width: 256px;
 }
 
+#keymapper h2 {
+  font-size: large;
+}
+
 #keymapper ul li .command {
   border-left: 1px solid black;
   display: inline-block;
@@ -33,3 +37,4 @@
 #keymapper ul li .command span + span {
   display: block;
 }
+
